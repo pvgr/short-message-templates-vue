@@ -52,7 +52,7 @@ export const store = new Vuex.Store({
   },
 
   actions,
-  mutations/*,
+  mutations,
 
-  plugins: [createPersistedState({ paths: ['locale', 'location', 'templates'] })]*/
+  plugins: [createPersistedState({ paths: ['locale', 'location', 'templates'] })]
 });
