@@ -1,0 +1,4 @@
+last 4 versions
+not OperaMobile < 27
+not ie < 9
+iOS >= 8

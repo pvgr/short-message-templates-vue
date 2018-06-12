@@ -1,0 +1,32 @@
+.hero-foot {
+  text-align: center;
+  background: transparent;
+  border-top: 1px solid $grey-lighter;
+
+  span {
+    display: block;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+
+    &:first-child { // overwrites bulma
+      margin-right: 0;
+    }
+  }
+
+  .tabs {
+    a {
+      display: block;
+      padding-right: 0;
+      padding-left: 0;
+      border-top: 0;
+      border-bottom: 0;
+    }
+
+    li {
+      flex-basis: 33.33%;
+    }
+  }
+}

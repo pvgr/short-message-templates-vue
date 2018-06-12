@@ -1,0 +1,56 @@
+.templates-list {
+  margin-right: -$gap;
+  margin-left: -$gap;
+  font-size: 0;
+
+  li {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: $gap 0;
+    padding-right: $gap;
+    padding-left: $gap;
+    font-size: 1rem;
+    box-sizing: border-box;
+
+    @media ( min-width: $tablet ) {
+      width: 50%;
+    }
+  }
+
+  .card {
+    border-radius: $radius;
+    box-shadow: 0 1px 2px rgba( $black, .3 );
+  }
+
+  .card-content {
+    padding: $gap;
+  }
+
+  .card-footer-item {
+    padding: $gap / 2;
+    border: 0;
+
+    .button {
+      width: 100%;
+      display: block;
+    }
+
+    .icon:nth-child(n) { // extra specificity
+      width: 16px;
+      height: 16px;
+      margin-right: $gap / 2;
+      margin-left: 0;
+      vertical-align: -2px; // magic number
+    }
+  }
+
+  .card-header-title {
+    padding: $notification-padding;
+  }
+
+  .editor {
+    padding: 0;
+    border: 0;
+  }
+}

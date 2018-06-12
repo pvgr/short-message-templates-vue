@@ -1,0 +1,53 @@
+{
+  "name": "short-message-templates-vue",
+  "version": "0.9.0",
+  "description": "Using Vue.js to build SMS templates",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot --host 0.0.0.0",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "test": "cross-env NODE_ENV=test mocha-webpack --require ./src/js/test/setup.js ./src/js/test/**/*.spec.js",
+    "watch": "cross-env NODE_ENV=test mocha-webpack --require ./src/js/test/setup.js ./src/js/test/**/*.spec.js --watch"
+  },
+  "author": "Panayiotis “pvgr.eu” Velisarakos",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "buefy": "^0.6.6",
+    "bulma": "^0.7.1",
+    "lodash": "^4.17.10",
+    "vue": "^2.5.16",
+    "vue-multiselect": "^2.1.0",
+    "vue-resize-directive": "^1.0.1",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.4"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.18",
+    "autoprefixer": "^8.6.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.1.6",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "expect": "^23.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "jsdom": "^11.11.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.2.0",
+    "mocha-webpack": "^1.1.0",
+    "moxios": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "vue-loader": "^9.9.5",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^2.11.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

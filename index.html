@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Short Message Templates with Vue.js</title>
+  <link rel="stylesheet" href="/dist/short-message-templates-vue.css">
+</head>
+
+<body>
+	<script>
+    var iconsAjax = new XMLHttpRequest();
+    iconsAjax.open("GET", "/dist/sprite.svg", true);
+    iconsAjax.responseType = "document";
+    iconsAjax.onload = function(e) {
+      document.body.insertBefore(iconsAjax.responseXML.documentElement, document.body.childNodes[0]);
+    }
+    iconsAjax.send();
+  </script>
+
+  <div id="app"></div>
+
+  <script src="/dist/polyfills.js"></script>
+  <script src="/dist/short-message-templates-vue.js"></script>
+</body>
+</html>

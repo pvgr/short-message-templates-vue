@@ -1,0 +1,40 @@
+.panel-container {
+  transform: translateY( -100% );
+  transition: transform 300ms ease-out;
+  padding: $gap;
+  z-index: 100; // elevate above .navbar
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: $white;
+
+  &.is_visible {
+    transform: none;
+    box-shadow: 0 5px 10px rgba( $black, .2 );
+  }
+
+  .container {
+    max-width: 500px; // magic number
+  }
+
+  .is-grouped {
+    width: 100%;
+    align-items: center;
+  }
+
+  .notification {
+    margin-bottom: 0;
+
+    + .panel { margin-top: 1em; }
+  }
+
+  .panel-block:not(:last-child) {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .panel-block:last-child {
+    border-radius: 0 0 $radius $radius;
+  }
+}

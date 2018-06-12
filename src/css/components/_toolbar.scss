@@ -1,0 +1,63 @@
+.toolbar-container {
+  padding: $gap;
+  transform: translate( -50%, -120% );
+  transition: 150ms ease-out;
+  transition-property: opacity, transform, top;
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
+  background: $dark;
+  border-radius: $radius;
+
+  &:after {
+    content: '';
+    width: 0;
+    height: 0;
+    margin-left: -8px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border: {
+      color: $dark transparent transparent transparent;
+      style: solid;
+      width: 8px 8px 0 8px;
+    }
+  }
+
+  &.is_visible {
+    transform: translate( -50%, -100% );
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba( $black, .5 );
+  }
+
+  button {
+    width: 32px;
+    height: 32px;
+    padding: 0 6px;
+    font-size: 1rem;
+
+    &.is-small { // extra specificity
+      border-radius: 4px;
+    }
+  }
+
+  .icon:nth-child(n) { // extra specificity
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+.toolbar-actions {
+  transform: translate( -50%, 20% );
+
+  &:after {
+    transform: rotate( 180deg );
+    top: auto;
+    bottom: 100%;
+  }
+
+  &.is_visible {
+    transform: translate( -50%, 0 );
+  }
+}

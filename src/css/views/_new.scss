@@ -1,0 +1,16 @@
+.editor {
+  max-width: $tablet;
+  min-height: 2em;
+  margin: 0 auto;
+  padding: .5em;
+  text-align: center;
+  border: 1px solid $light;
+  border-radius: $radius;
+  box-sizing: border-box;
+
+  &:focus, &.is_editing {
+    outline: none;
+    color: $dark;
+    background: $light;
+  }
+}

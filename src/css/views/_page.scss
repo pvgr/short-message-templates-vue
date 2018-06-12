@@ -1,0 +1,29 @@
+html {
+  overflow: hidden;
+}
+
+.content {
+  h1 { // overwrites Bulma
+    color: $white;
+  }
+}
+
+.hero.is-primary {
+  height: 100vh;
+  min-height: 0;
+  background: radial-gradient( circle farthest-side, mix( black, $primary, 10% ), mix( black, $primary, 30% ) );
+}
+
+.hero-body {
+  padding: 0;
+  box-sizing: border-box;
+
+  > .container {
+    min-height: 3em;
+    display: block;
+    padding: 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+}

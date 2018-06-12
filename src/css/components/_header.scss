@@ -1,0 +1,61 @@
+.hero-head {
+  background: transparent;
+  border-bottom: 1px solid $grey-lighter;
+
+  .icon {
+    width: 36px;
+    height: 36px;
+
+    &:only-child {
+      margin: 0; // overwrites Bulma
+    }
+  }
+
+  .navbar > .container {
+    display: flex; // overwrites media query
+  }
+
+  .navbar-end {
+    margin-left: auto; // overwrites media query
+  }
+
+  .navbar-item.navbar-item { // extra specificity
+    color: $white;
+  }
+}
+
+
+.select-locale {
+  .multiselect__select {
+    &:before {
+      color: $white;
+      border-top-color: $white;
+    }
+  }
+
+  .multiselect__content-wrapper {
+    width: auto;
+    overflow-x: hidden;
+    right: 0;
+    border-top: 1px solid #e8e8e8;
+    border-top-left-radius: $radius;
+    box-shadow: 0 0 15px rgba( $grey-dark, .2 );
+  }
+
+  .multiselect__option--highlight {
+    background: $primary;
+  }
+
+  .multiselect__single {
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .multiselect__tags {
+    padding-left: 0;
+    color: $white;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+}
