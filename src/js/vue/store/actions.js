@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // close any panel left open
-export const closeActivePanel = ({ commit, state }, $vm) => {
-  if (state.activePanel) {
+export const closeActivePanel = ({ commit, getters }, $vm) => {
+  if (getters.activePanel) {
     $vm.$root.$el.querySelector('.panel-container').classList.remove('is_visible');
 
     setTimeout(() => {
@@ -25,8 +25,8 @@ export const confirmDelete = ({ commit, dispatch }, [key, $vm]) => {
 };
 
 // save the edited template
-export const confirmSave = ({ commit, dispatch, state }, $vm) => {
-  const tpl = state.currentlyEditing;
+export const confirmSave = ({ commit, dispatch, getters }, $vm) => {
+  const tpl = getters.currentlyEditing;
   const key = tpl.closest('.template-wrapper').getAttribute('data-key');
   const title = tpl.closest('.template-wrapper').querySelector('.template-title').textContent;
 
@@ -44,9 +44,9 @@ export const confirmSave = ({ commit, dispatch, state }, $vm) => {
 }
 
 // copy the selected Location text from the Panel to the “active” template
-export const copyLocationText = ({ commit, dispatch, state }, [newLocationText, $vm]) => {
+export const copyLocationText = ({ commit, dispatch, getters }, [newLocationText, $vm]) => {
   const locationRe = /<span class=".*is_location">.*?<\/span>/gm;
-  const tpl = state.currentlyEditing;
+  const tpl = getters.currentlyEditing;
   const key = tpl.closest('.template-wrapper').getAttribute('data-key');
   const message = tpl.innerHTML;
 
@@ -60,7 +60,7 @@ export const copyLocationText = ({ commit, dispatch, state }, [newLocationText, 
     document.execCommand('insertHTML', false, `<span class="template-snippet is_location">${newLocationText}</span>`);
     tpl.focus();
 
-    text = state.currentlyEditing.innerHTML;
+    text = getters.currentlyEditing.innerHTML;
   }
 
   dispatch('closeActivePanel', $vm);
@@ -69,8 +69,8 @@ export const copyLocationText = ({ commit, dispatch, state }, [newLocationText, 
 }
 
 // copy the selected Snippet of text from the Panel to the “active” template
-export const copySnippetText = ({ commit, dispatch, state }, [newSnippetText, $vm]) => {
-  const tpl = state.currentlyEditing;
+export const copySnippetText = ({ commit, dispatch, getters }, [newSnippetText, $vm]) => {
+  const tpl = getters.currentlyEditing;
   const key = tpl.closest('.template-wrapper').getAttribute('data-key');
 
   tpl.focus(); // sometimes this helps, to insert the new snippet at where the cursor was, on Firefox at least
@@ -79,13 +79,13 @@ export const copySnippetText = ({ commit, dispatch, state }, [newSnippetText, $v
 
   dispatch('closeActivePanel', $vm);
 
-  commit('addSnippetText', [key, state.currentlyEditing.innerHTML]);
+  commit('addSnippetText', [key, getters.currentlyEditing.innerHTML]);
 }
 
 // request location suggestions from Google Geocode API
-export const fetchLocationSuggestions = ({ state }, address) => {
+export const fetchLocationSuggestions = ({ getters }, address) => {
   return new Promise((resolve, reject) => {
-    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(address)}&language=${state.lang}&key=${state.geocodingApiKey}`)
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(address)}&language=${getters.lang}&key=${getters.geocodingApiKey}`)
       .then((response) => {
         resolve(response);
       })
@@ -96,9 +96,9 @@ export const fetchLocationSuggestions = ({ state }, address) => {
 };
 
 // request location “friendly” name from Google
-export const fetchLocationFromCoords = ({ state }, location) => {
+export const fetchLocationFromCoords = ({ getters }, location) => {
   return new Promise((resolve, reject) => {
-    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&language=${state.lang}&key=${state.geocodingApiKey}`)
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&language=${getters.lang}&key=${getters.geocodingApiKey}`)
       .then((response) => {
         resolve(response);
       })
@@ -109,15 +109,15 @@ export const fetchLocationFromCoords = ({ state }, location) => {
 };
 
 // hide editing toolbars
-export const hideToolbars = ({ commit, state }, $vm) => {
-  if (state.toolbarsAreVisible) {
+export const hideToolbars = ({ commit, getters }, $vm) => {
+  if (getters.toolbarsAreVisible) {
     $vm.$root.$el.querySelectorAll('.toolbar-container').forEach((el) => {
       el.classList.remove('is_visible');
     });
 
     setTimeout(() => {
-      if (state.currentlyEditing) {
-        state.currentlyEditing.removeAttribute('contentEditable');
+      if (getters.currentlyEditing) {
+        getters.currentlyEditing.removeAttribute('contentEditable');
       }
 
       commit('resetToolbars');
@@ -126,8 +126,8 @@ export const hideToolbars = ({ commit, state }, $vm) => {
 }
 
 // show location panel
-export const openLocationPanel = ({ commit, state }, $vm) => {
-  if (state.activePanel && state.activePanel != 'LocationPanel') {
+export const openLocationPanel = ({ commit, getters }, $vm) => {
+  if (getters.activePanel && getters.activePanel != 'LocationPanel') {
     // quickly hide the previous open panel, to replace it with the Location
     $vm.$root.$el.querySelector('.panel-container').classList.remove('is_visible');
     commit('resetActivePanel');
@@ -144,8 +144,8 @@ export const openLocationPanel = ({ commit, state }, $vm) => {
 }
 
 // show snippets panel
-export const openSnippetsPanel = ({ commit, state }, $vm) => {
-  if (state.activePanel && state.activePanel != 'SnippetsPanel') {
+export const openSnippetsPanel = ({ commit, getters }, $vm) => {
+  if (getters.activePanel && getters.activePanel != 'SnippetsPanel') {
     // quickly hide the previous open panel, to replace it with the Location
     $vm.$root.$el.querySelector('.panel-container').classList.remove('is_visible');
     commit('resetActivePanel');
@@ -162,6 +162,6 @@ export const openSnippetsPanel = ({ commit, state }, $vm) => {
 }
 
 // show editing toolbars
-export const showToolbars = ({ commit, state }, el) => {
+export const showToolbars = ({ commit }, el) => {
   commit('showToolbars', el);
 }

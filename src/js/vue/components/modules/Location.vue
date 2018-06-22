@@ -69,8 +69,8 @@
           text: ''
         },
         value: {
-          coords: this.$store.state.location.coords,
-          label: this.$store.state.location.text
+          coords: this.$store.getters.location.coords,
+          label: this.$store.getters.location.text
         }
       }
     },
@@ -112,7 +112,7 @@
 
             // update the location text
             this.options.push(response.data.results[0].formatted_address);
-            this.$store.state.location.text = response.data.results[0].formatted_address;
+            this.$store.getters.location.text = response.data.results[0].formatted_address;
           } else {
             this.message.className = 'is-danger';
 

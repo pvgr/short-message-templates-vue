@@ -83,7 +83,7 @@
           { code: 'vi', label: 'Tiếng Việt Nam' },
           { code: 'zh', label: 'CN 汉语' }
         ],
-        value: this.$store.state.locale
+        value: this.$store.getters.locale
       }
     },
 

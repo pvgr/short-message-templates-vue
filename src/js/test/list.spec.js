@@ -5,7 +5,7 @@ import expect from 'expect';
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-import * as actions from '../vue/store/actions';
+import * as getters from '../vue/store/getters';
 import * as mutations from '../vue/store/mutations';
 
 const store = new Vuex.Store({
@@ -24,7 +24,7 @@ const store = new Vuex.Store({
     ]
   },
 
-  actions,
+  getters,
   mutations
 });
 
@@ -50,7 +50,7 @@ describe('List', () => {
     // importing it in the test didn’t help
     // just call the mutation directly and be done with it!
 
-    store.commit('deleteTemplate', store.state.templates[0].key);
+    store.commit('deleteTemplate', store.getters.templates[0].key);
     expect(wrapper.findAll('.templates-list li').length).toBe(1);
   });
 });

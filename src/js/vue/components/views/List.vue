@@ -3,7 +3,7 @@
     <h1 class="title is-size-3">Templates</h1>
 
     <ul class="templates-list">
-      <li class="template-wrapper" v-for="template in $store.state.templates" v-bind:key="template.key" :data-key="template.key">
+      <li class="template-wrapper" v-for="template in $store.getters.templates" v-bind:key="template.key" :data-key="template.key">
         <div class="card">
           <div class="card-header">
             <p class="card-header-title template-title">{{ template.title }}</p>
@@ -52,12 +52,12 @@
     methods: {
       cleanupStage (el) {
         // if an Edit button is pressed while there is another template in edit ”state”, we must deactivate it and hide the toolbars, before enabling the new one
-        if (this.$store.state.currentlyEditing && this.$store.state.currentlyEditing != el) {
+        if (this.$store.getters.currentlyEditing && this.$store.getters.currentlyEditing != el) {
           this.$store.commit('resetToolbars');
         }
 
         // the same with the panels
-        if (this.$store.state.activePanel) {
+        if (this.$store.getters.activePanel) {
           this.$store.commit('resetActivePanel');
         }
       },

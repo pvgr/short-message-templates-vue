@@ -27,8 +27,8 @@
       },
 
       cancelEdit () {
-        this.$store.state.currentlyEditing.removeAttribute('contentEditable');
-        this.$store.state.currentlyEditing.classList.remove('is_editing');
+        this.$store.getters.currentlyEditing.removeAttribute('contentEditable');
+        this.$store.getters.currentlyEditing.classList.remove('is_editing');
         this.$store.dispatch('closeActivePanel', this);
         this.$store.dispatch('hideToolbars', this);
       },
@@ -67,7 +67,7 @@
       // the positioning (and entering animation) of the toolbar is calculated here,
       // in relation to the template that is currently edited — it is the “safest” time to do those calculations
       // I have tried in Vuex actions, and List component too but I decided to put them here
-      tpl = this.$store.state.currentlyEditing;
+      tpl = this.$store.getters.currentlyEditing;
 
       this.calculatePosition();
 

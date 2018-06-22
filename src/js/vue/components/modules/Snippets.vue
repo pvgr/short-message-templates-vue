@@ -59,7 +59,7 @@
     data () {
       return {
         isLoading: false,
-        options: this.$store.state.snippets,
+        options: this.$store.getters.snippets,
         message: {
           className: 'is-primary',
           text: ''

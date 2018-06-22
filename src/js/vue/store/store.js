@@ -17,6 +17,7 @@ Vue.use(Vuex);
 import { keys } from './APIs';
 
 import * as actions from './actions';
+import * as getters from './getters';
 import * as mutations from './mutations';
 
 export const store = new Vuex.Store({
@@ -52,6 +53,7 @@ export const store = new Vuex.Store({
   },
 
   actions,
+  getters,
   mutations,
 
   plugins: [createPersistedState({ paths: ['locale', 'location', 'templates'] })]

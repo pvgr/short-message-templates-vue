@@ -8,6 +8,7 @@ localVue.use(Vuex);
 
 import { keys } from '../vue/store/APIs';
 import * as actions from '../vue/store/actions';
+import * as getters from '../vue/store/getters';
 import * as mutations from '../vue/store/mutations';
 
 const store = new Vuex.Store({
@@ -24,6 +25,7 @@ const store = new Vuex.Store({
   },
 
   actions,
+  getters,
   mutations
 });
 
@@ -122,7 +124,7 @@ describe('Location', () => {
     });
 
     moxios.wait(() => {
-      expect(wrapper.vm.$store.state.location.text).toBe('Athens, Greece');
+      expect(wrapper.vm.$store.getters.location.text).toBe('Athens, Greece');
       done();
     })
   });

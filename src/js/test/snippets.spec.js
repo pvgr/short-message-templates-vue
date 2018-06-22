@@ -5,13 +5,17 @@ import expect from 'expect';
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
+import * as getters from '../vue/store/getters';
+
 const store = new Vuex.Store({
   state: {
     snippets: [
       'First snippet',
       'Second snippet'
     ]
-  }
+  },
+
+  getters
 });
 
 import Snippets from '../vue/components/modules/Snippets.vue';
