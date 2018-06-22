@@ -10,6 +10,7 @@ I made this app while I learn Vue.js and I mix and match various features, techn
 [webpack 3](https://webpack.js.org/) is used to run this thing, with [Mocha](https://mochajs.org/) and [expect](https://facebook.github.io/jest/docs/en/expect.html) for [TDD](https://en.wikipedia.org/wiki/Test-driven_development). I also use [Vuex](https://vuex.vuejs.org/en/), [vue-router](https://router.vuejs.org/en/), [axios](https://github.com/axios/axios), the [Google Geocode API](https://developers.google.com/maps/documentation/geocoding/start) for location suggestions based on user input or GPS position (if available), and [Vue-multiselect](https://vue-multiselect.js.org/). [vuex-persistedstate](https://github.com/robinvdvleuten/vuex-persistedstate) is used to save the state in `localStorage`, but it shouldn’t be difficult to use Firebase or something else instead. The [Bulma](https://bulma.io/) framework is used for styling (because, why not) and a single [Buefy](https://buefy.github.io/#/) component is loaded too.
 
 ## ToDo
+- [ ] Fix the issue with vuex-persistedstate saving the currently edited template without pressing _save_ first — my bad!
 - [ ] Learn how to test / mock Vuex actions and mutations!
 - [ ] Localize the interface· currently, only the location suggestion that is returned from the Geocoding API is localized. Maybe use [vuex-i18n](https://github.com/dkfbasel/vuex-i18n)?
 - [ ] Turn this to an Android app, maybe iOS too, to actually send SMS, or…
