@@ -23,13 +23,13 @@
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.18",
-    "autoprefixer": "^8.6.2",
+    "@vue/test-utils": "^1.0.0-beta.19",
+    "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-lodash": "^3.3.4",
     "babel-preset-env": "^1.7.0",
-    "cross-env": "^5.1.6",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
