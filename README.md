@@ -11,6 +11,9 @@ I made this app while I learn Vue.js and I mix and match various features, techn
 
 ## ToDo
 - [ ] Fix the issue with vuex-persistedstate saving the currently edited template without pressing _save_ first — my bad!
+- [ ] Use the [Selection API](https://developer.mozilla.org/en-US/docs/Web/API/Selection) to better handle location / snippet insertion…
+- [ ] …maybe allow editing of previously entered location information of text, or finally…
+- [ ] …investigate [Quill](https://github.com/quilljs/quill) integration — though a full-fledged editor is beyond the scope of this project!
 - [ ] Learn how to test / mock Vuex actions and mutations!
 - [ ] Localize the interface· currently, only the location suggestion that is returned from the Geocoding API is localized. Maybe use [vuex-i18n](https://github.com/dkfbasel/vuex-i18n)?
 - [ ] Turn this to an Android app, maybe iOS too, to actually send SMS, or…
