@@ -27,8 +27,16 @@
       },
 
       cancelEdit () {
-        this.$store.getters.currentlyEditing.removeAttribute('contentEditable');
-        this.$store.getters.currentlyEditing.classList.remove('is_editing');
+        const tpl = this.$store.getters.currentlyEditing;
+
+        // a backup might be saved on the currently edited template itself, restore it
+        if (tpl.backup != undefined) {
+          tpl.innerHTML = tpl.backup;
+          tpl.backup = undefined;
+        }
+
+        tpl.removeAttribute('contentEditable');
+        tpl.classList.remove('is_editing');
         this.$store.dispatch('closeActivePanel', this);
         this.$store.dispatch('hideToolbars', this);
       },

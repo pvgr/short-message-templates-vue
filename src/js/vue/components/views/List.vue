@@ -73,6 +73,9 @@
         // find the body text of the selected template
         const el = event.target.closest('.card').querySelector('.template-body');
 
+        // backup the current text to maybe restore it later, on cancel edit
+        el.backup = el.innerHTML;
+
         // close toolbars and panels
         this.cleanupStage(el);
 

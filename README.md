@@ -10,7 +10,7 @@ I made this app while I learn Vue.js and I mix and match various features, techn
 [webpack 3](https://webpack.js.org/) is used to run this thing, with [Mocha](https://mochajs.org/) and [expect](https://facebook.github.io/jest/docs/en/expect.html) for [TDD](https://en.wikipedia.org/wiki/Test-driven_development). I also use [Vuex](https://vuex.vuejs.org/en/), [vue-router](https://router.vuejs.org/en/), [axios](https://github.com/axios/axios), the [Google Geocode API](https://developers.google.com/maps/documentation/geocoding/start) for location suggestions based on user input or GPS position (if available), and [Vue-multiselect](https://vue-multiselect.js.org/). [vuex-persistedstate](https://github.com/robinvdvleuten/vuex-persistedstate) is used to save the state in `localStorage`, but it shouldn’t be difficult to use Firebase or something else instead. The [Bulma](https://bulma.io/) framework is used for styling (because, why not) and a single [Buefy](https://buefy.github.io/#/) component is loaded too.
 
 ## ToDo
-- [ ] Fix the issue with vuex-persistedstate saving the currently edited template without pressing _save_ first — my bad!
+- [x] Fix the issue with vuex-persistedstate saving the currently edited template without pressing _save_ first — my bad!
 - [ ] Use the [Selection API](https://developer.mozilla.org/en-US/docs/Web/API/Selection) to better handle location / snippet insertion…
 - [ ] …maybe allow editing of previously entered location information of text, or finally…
 - [ ] …investigate [Quill](https://github.com/quilljs/quill) integration — though a full-fledged editor is beyond the scope of this project!
