@@ -1,4 +1,4 @@
-/* 0.9.0 */
+/* 0.9.1 */
 const CONFIG = {
   app: 'short-message-templates-vue' /* filename of the JS and CSS bundle */
 };

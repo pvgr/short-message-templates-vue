@@ -1,6 +1,6 @@
 {
   "name": "short-message-templates-vue",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Using Vue.js to build SMS templates",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.19",
+    "@vue/test-utils": "^1.0.0-beta.20",
     "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -31,7 +31,7 @@
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.5.0",
     "expect": "^23.1.0",
