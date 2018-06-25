@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, mount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import expect from 'expect';
 
@@ -31,7 +31,7 @@ const store = new Vuex.Store({
 import List from '../vue/components/views/List.vue';
 
 describe('List', () => {
-  const wrapper = shallowMount(List, {
+  const wrapper = mount(List, {
     localVue,
     store,
     attachToDocument: true

@@ -26,6 +26,8 @@
       onClick (e) {
         const el = e.target;
 
+        console.log(window.getSelection()); /* eslint-disable-line */
+
         el.classList.add('is_editing');
         el.setAttribute('contentEditable', 'true');
         document.execCommand('defaultParagraphSeparator', false, 'p');
