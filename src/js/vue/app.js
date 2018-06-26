@@ -1,13 +1,8 @@
 import Vue from 'vue';
+
 import VueRouter from 'vue-router';
-import { Dialog } from 'buefy';
-
-import App from './components/App.vue';
-
 import { routes } from './helpers/routes';
-import { store } from './store/store';
 
-Vue.prototype.$dialog = Dialog;
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -15,6 +10,13 @@ const router = new VueRouter({
   mode: 'history',
   routes
 });
+
+import App from './components/App.vue';
+
+import { store } from './store/store';
+
+import { Dialog } from 'buefy';
+Vue.prototype.$dialog = Dialog;
 
 new Vue({
   el: '#app',
