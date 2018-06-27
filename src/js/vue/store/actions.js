@@ -50,22 +50,37 @@ export const copyLocationText = ({ commit, dispatch, getters }, [newLocationText
   const key = tpl.closest('.template-wrapper').getAttribute('data-key');
   const message = tpl.innerHTML;
 
-  let text;
+  let tplContents;
 
   // if there is already a location tag in the text, replace it, otherwise insert one
   if (locationRe.test(message)) {
-    text = message.replace(locationRe, `<span class="template-snippet is_location">${newLocationText}</span>`);
+    tplContents = message.replace(locationRe, `<span class="template-snippet is_location">${newLocationText}</span>`);
   } else {
-    tpl.focus(); // sometimes this helps, to insert the new snippet at where the cursor was, on Firefox at least
-    document.execCommand('insertHTML', false, `<span class="template-snippet is_location">${newLocationText}</span>`);
+    // try to insert the location at the cursor position, inside the template
+    // TODO: investigate further, this does not work, refactor!
     tpl.focus();
 
-    text = getters.currentlyEditing.innerHTML;
+    const selObj = window.getSelection();
+    const range = selObj.getRangeAt(0);
+
+    // if the caret was in the editor when the Location panel was activated and the location was selected to be copied to the text…
+    if (range.startContainer.nodeName == '#text' && range.startContainer.parentElement.classList.contains('template-body')) {
+      const index = range.startOffset;
+      const currentText = getters.currentlyEditing.innerHTML;
+
+      getters.currentlyEditing.innerHTML = `${currentText.substring(0, index)}<span class="template-snippet is_location">${newLocationText}</span>${currentText.substring(index)}`;
+    } else {
+      tpl.focus(); // sometimes this helps, to insert the new snippet at where the cursor was, on Firefox at least
+      document.execCommand('insertHTML', false, `<span class="template-snippet is_location">${newLocationText}</span>`);
+      tpl.focus();
+    }
   }
+
+  tplContents = getters.currentlyEditing.innerHTML;
 
   dispatch('closeActivePanel', $vm);
 
-  commit('addLocationText', [key, text]);
+  commit('addLocationText', [key, tplContents]);
 }
 
 // copy the selected Snippet of text from the Panel to the “active” template

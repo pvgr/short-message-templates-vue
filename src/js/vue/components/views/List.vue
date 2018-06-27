@@ -82,6 +82,7 @@
         // wait for next “tick”
         setTimeout(() => {
           el.setAttribute('contentEditable', 'true');
+          el.focus();
           document.execCommand('defaultParagraphSeparator', false, 'p');
           this.$store.dispatch('showToolbars', el);
         }, 0);
